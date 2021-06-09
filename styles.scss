@@ -1,0 +1,149 @@
+:root {
+  --main-color: #151922;
+  --timing-animation: .5s;
+}
+
+@font-face {
+  font-family: 'Gordita Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gordita Medium'), url('./fonts/Gordita Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gordita Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Gordita Bold'), url('./fonts/Gordita Bold.woff') format('woff');
+}
+
+html {
+  font-size: 16px;
+  color: var(--main-color);
+}
+
+.app {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-evenly;
+  align-items: center;
+  min-height: 100vh;
+
+  &--animate {
+    .logo-css {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .button {
+      transform: translateY(1.25rem);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .circle__shapeContent {
+      transform: translateY(0);
+    }
+
+    .circle__shape1 {
+      transform: translateX(0);
+    }
+
+    .circle__shape3 {
+      transform: translateX(0);
+    }
+  }
+}
+
+.logo-css {
+  font-size: 1.625rem;
+  display: flex;
+  gap: 0.5rem;
+  transform: translateY(1.25rem);
+  opacity: 0;
+  transition: transform var(--timing-animation) .2s, opacity var(--timing-animation) .2s;
+}
+
+.circle {
+  display: flex;
+  background-color: var(--main-color);
+  position: relative;
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 50%;
+
+  &__shapeContent {
+    position: relative;
+    width: 100%;
+    transition: transform var(--timing-animation) .4s ease-out;
+    transform: translateY(80%);
+  }
+
+  &__shape {
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    width: 2.5em;
+    height: 2.5em;
+    transition: transform var(--timing-animation) .7s;
+  }
+
+  &__shape1 {
+    clip-path: polygon(63% 44%, 66% 41%, 102% 100%, 78% 100%);
+    transform: translateX(-9%);
+  }
+
+  &__shape2 {
+    clip-path: polygon(39% 44%, 50% 27%, 91% 100%, 55% 100%);
+  }
+
+  &__shape3 {
+    clip-path: polygon(34% 40%, -1% 99%, 68% 103%);
+    transform: translateX(7.5%);
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+
+  &__primary {
+    margin-top: 0.0625em;
+    font-family: "Gordita Bold", serif;
+    font-size: 1.25em;
+  }
+
+  &__secondary {
+    font-family: "Gordita Medium", serif;
+    font-size: 0.40625em;
+    margin-top: -1.1375em;
+    letter-spacing: 0.6em;
+    margin-left: 0.2625em;
+  }
+}
+
+.logo-svg {
+  width: 7.125rem;
+  height: 2rem;
+}
+
+.button {
+  position: absolute;
+  border: none;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0 0 blue;
+  padding: 0.75rem 1.5rem;
+  background-color: #0ea5e9;
+  color: #fff;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-family: "Gordita Bold", serif;
+  cursor: pointer;
+  transition: transform var(--timing-animation), opacity var(--timing-animation);
+  outline: none;
+
+  &:active{
+    box-shadow: 0 0 0 0 blue;
+    margin-top: 0.25rem;
+  }
+}
